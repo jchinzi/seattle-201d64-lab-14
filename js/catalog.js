@@ -9,10 +9,15 @@ var cart = new Cart([]);
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
 
-  //TODO: Add an <option> tag inside the form's select for each product
+  //Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');
+
   for (var i in Product.allProducts) {
 
+    var newListItem = document.createElement('option');
+    newListItem.textContent= Product.allProducts[i].name;
+
+    selectElement.appendChild(newListItem);
   }
 
 }
