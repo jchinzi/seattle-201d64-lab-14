@@ -25,30 +25,39 @@ function populateForm() {
 // When someone submits the form, we need to add the selected item to the cart
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
+var addItemButton = document.getElementById('catalog');
+addItemButton.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
-
-  // TODO: Prevent the page from reloading
-
+  event.preventDefault(); // Prevent the page from reloading
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-
 }
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
+
+  // suss out the item picked from the select list
+  var productPicked = document.getElementById('items').value; // why not 'options'? it knows there's something in the dropdown.
+  var quantityPicked = document.getElementById('quantity').value;   // get the quantity
   // TODO: using those, add one item to the Cart
+  cart.addItem(productPicked,quantityPicked);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+
+  var cartCounter = document.getElementById('itemCount');
+  var counterDisplay = document.createElement('p');
+  counterDisplay.textContent = 'ADD DYNAMISM'; // TODO: find the cart length.
+  cartCounter.appendChild(counterDisplay);
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
