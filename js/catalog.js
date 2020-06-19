@@ -36,23 +36,21 @@ function handleSubmit(event) {
   updateCartPreview();
 }
 
-// TODO: Add the selected item and quantity to the cart
+//Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
 
   // suss out the item picked from the select list
   var productPicked = document.getElementById('items').value; // why not 'options'? it knows there's something in the dropdown.
-  var quantityPicked = document.getElementById('quantity').value;   // get the quantity
-  // TODO: using those, add one item to the Cart
+  var quantityPicked = document.getElementById('quantity').value; // get the quantity
+  //using those, add one item to the Cart
   cart.addItem(productPicked,quantityPicked);
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
+//Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
 
   var cartCounter = document.getElementById('itemCount');
-  var counterDisplay = document.createElement('p');
-  counterDisplay.textContent = 'ADD DYNAMISM'; // TODO: find the cart length.
-  cartCounter.appendChild(counterDisplay);
+  cartCounter.textContent = cart.items.length;
 }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
