@@ -53,11 +53,23 @@ function updateCounter() {
   cartCounter.textContent = cart.items.length;
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
 
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  // Get the item and quantity from the form
+
+  var productPicked = document.getElementById('items').value;
+  var quantityPicked = document.getElementById('quantity').value;
+  
+  // Add a new element to the cartContents div with that information
+
+  var cartPreview = document.getElementById('cartContents');
+  var itemInCart = document.createElement('h4');
+
+  itemInCart.textContent= 'Item: ' + productPicked + '. Quantity Selected: ' + quantityPicked;
+
+  cartPreview.appendChild(itemInCart);
+
 }
 
 // Set up the "submit" event listener on the form.
